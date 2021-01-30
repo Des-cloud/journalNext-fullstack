@@ -1,5 +1,6 @@
 import Header from "../../components/header";
 import Footer from "../../components/footer";
+import Head from "next/head";
 import fetch from "isomorphic-unfetch";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -27,6 +28,10 @@ const Post = ({ data }) => {
 
   return (
     <div className="page">
+      <Head>
+        <title>{data.title}</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <Header />
       <main>
         <article>
@@ -87,7 +92,7 @@ const Post = ({ data }) => {
                   </button>
                   <button
                     type="button"
-                    className="btn btn-primary"
+                    className="btn btn-danger"
                     onClick={handleDel}
                   >
                     Delete

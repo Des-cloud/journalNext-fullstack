@@ -1,5 +1,7 @@
 import Header from "../../components/header";
 import Footer from "../../components/footer";
+import Spinner from "../../components/spinner";
+import Head from "next/head";
 import { useState, useEffect } from "react";
 import fetch from "isomorphic-unfetch";
 import { useRouter } from "next/router";
@@ -71,42 +73,50 @@ const Edit = ({ data }) => {
 
   return (
     <div className="page">
+      <Head>
+        <title>Edit Post</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <Header />
       <main>
-        <div className="container-fluid">
-          <div className="row">
-            <div className="col-lg-9">
-              <h1>Edit</h1>
-              <form className="form" onSubmit={handleSubmit}>
-                <div className="form-group">
-                  <label htmlFor="title">Title</label>
-                  <input
-                    type="text"
-                    name="title"
-                    id="title"
-                    value={form.title}
-                    className="form-control"
-                    onChange={handleChange}
-                  />
+        {submit ? (
+          <Spinner />
+        ) : (
+          <div className="container-fluid">
+            <div className="row">
+              <div className="col-lg-9">
+                <h1>Edit</h1>
+                <form className="form" onSubmit={handleSubmit}>
+                  <div className="form-group">
+                    <label htmlFor="title">Title</label>
+                    <input
+                      type="text"
+                      name="title"
+                      id="title"
+                      value={form.title}
+                      className="form-control"
+                      onChange={handleChange}
+                    />
 
-                  <label htmlFor="textInput">Post</label>
-                  <textarea
-                    name="description"
-                    id="textInput"
-                    className="form-control"
-                    rows="8"
-                    value={form.description}
-                    onChange={handleChange}
-                  ></textarea>
-                </div>
+                    <label htmlFor="textInput">Post</label>
+                    <textarea
+                      name="description"
+                      id="textInput"
+                      className="form-control"
+                      rows="8"
+                      value={form.description}
+                      onChange={handleChange}
+                    ></textarea>
+                  </div>
 
-                <button type="submit" className="btn btn-lg btn-primary">
-                  Update
-                </button>
-              </form>
+                  <button type="submit" className="btn btn-lg btn-primary">
+                    Update
+                  </button>
+                </form>
+              </div>
             </div>
           </div>
-        </div>
+        )}
       </main>
       <Footer />
     </div>

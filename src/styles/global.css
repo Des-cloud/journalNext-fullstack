@@ -201,3 +201,10 @@ a.btn {
   color: #fff;
   font-size: large;
 }
+
+/* /*SPINNER* */
+.spinner-border {
+  /* width: 200px;
+  height: 200px; */
+  color: #1abc9c;
+}

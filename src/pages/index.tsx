@@ -1,11 +1,16 @@
 import Header from "../components/header";
 import Footer from "../components/footer";
+import Head from "next/head";
 import fetch from "isomorphic-unfetch";
 import Link from "next/link";
 
 const Home = ({ data }) => {
   return (
     <div className="page">
+      <Head>
+        <title>Home</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <Header />
       <main>
         <div className="title text-center">
