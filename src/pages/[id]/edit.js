@@ -8,8 +8,8 @@ import { useRouter } from "next/router";
 
 const Edit = ({ data }) => {
   const [form, setForm] = useState({
-    title: data.title,
-    description: data.description,
+    title: data?.title,
+    description: data?.description,
     year: new Date().getFullYear(),
     month: new Date().getMonth() + 1,
     day: new Date().getDate(),
@@ -55,7 +55,7 @@ const Edit = ({ data }) => {
   const publishJournal = async () => {
     try {
       const res = await fetch(
-        `http://localhost:3000/api/journals/${data._id}`,
+        `http://localhost:3000/api/journals/${data?._id}`,
         {
           method: "PUT",
           headers: {
@@ -72,44 +72,43 @@ const Edit = ({ data }) => {
   };
 
   return (
-    <div className="page">
+    <div className='page'>
       <Head>
         <title>Edit Post</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta name='viewport' content='initial-scale=1.0, width=device-width' />
       </Head>
       <Header />
       <main>
         {submit ? (
           <Spinner />
         ) : (
-          <div className="container-fluid">
-            <div className="row">
-              <div className="col-lg-9">
+          <div className='container-fluid'>
+            <div className='row'>
+              <div className='col-lg-9'>
                 <h1>Edit</h1>
-                <form className="form" onSubmit={handleSubmit}>
-                  <div className="form-group">
-                    <label htmlFor="title">Title</label>
+                <form className='form' onSubmit={handleSubmit}>
+                  <div className='form-group'>
+                    <label htmlFor='title'>Title</label>
                     <input
-                      type="text"
-                      name="title"
-                      id="title"
+                      type='text'
+                      name='title'
+                      id='title'
                       value={form.title}
-                      className="form-control"
+                      className='form-control'
                       onChange={handleChange}
                     />
 
-                    <label htmlFor="textInput">Post</label>
+                    <label htmlFor='textInput'>Post</label>
                     <textarea
-                      name="description"
-                      id="textInput"
-                      className="form-control"
-                      rows="8"
+                      name='description'
+                      id='textInput'
+                      className='form-control'
+                      rows='8'
                       value={form.description}
-                      onChange={handleChange}
-                    ></textarea>
+                      onChange={handleChange}></textarea>
                   </div>
 
-                  <button type="submit" className="btn btn-lg btn-primary">
+                  <button type='submit' className='btn btn-lg btn-primary'>
                     Update
                   </button>
                 </form>
