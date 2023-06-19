@@ -27,74 +27,69 @@ const Post = ({ data }) => {
   };
 
   return (
-    <div className="page">
+    <div className='page'>
       <Head>
-        <title>{data.title}</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <title>{data?.title}</title>
+        <meta name='viewport' content='initial-scale=1.0, width=device-width' />
       </Head>
       <Header />
       <main>
         <article>
-          <div className="title journalTitle">
-            <h1>{data.title}</h1>
+          <div className='title journalTitle'>
+            <h1>{data?.title}</h1>
           </div>
-          <span className="card-date text-primary font-weight-bolder mb-2">
-            {data.year}-{data.month}-{data.day}
+          <span className='card-date text-primary font-weight-bolder mb-2'>
+            {data?.year}-{data?.month}-{data?.day}
           </span>
 
-          <div className="content">{data.description}</div>
-          <Link href={`/${data._id}/edit`}>
-            <button type="button" className="btn btn-primary">
+          <div className='content'>{data?.description}</div>
+          <Link href={`/${data?._id}/edit`}>
+            <button type='button' className='btn btn-primary'>
               <a>Edit</a>
             </button>
           </Link>
           <button
-            type="button"
-            className="btn del btn-danger"
-            data-toggle="modal"
-            data-target="#exampleModal"
-          >
+            type='button'
+            className='btn del btn-danger'
+            data-toggle='modal'
+            data-target='#exampleModal'>
             Delete
           </button>
           <div
-            className="modal fade"
-            id="exampleModal"
-            tabIndex="-1"
-            role="dialog"
-            aria-labelledby="exampleModalLabel"
-            aria-hidden="true"
-          >
-            <div className="modal-dialog" role="document">
-              <div className="modal-content">
-                <div className="modal-header">
-                  <h5 className="modal-title" id="exampleModalLabel">
+            className='modal fade'
+            id='exampleModal'
+            tabIndex='-1'
+            role='dialog'
+            aria-labelledby='exampleModalLabel'
+            aria-hidden='true'>
+            <div className='modal-dialog' role='document'>
+              <div className='modal-content'>
+                <div className='modal-header'>
+                  <h5 className='modal-title' id='exampleModalLabel'>
                     Confirm Delete
                   </h5>
                   <button
-                    type="button"
-                    className="close"
-                    data-dismiss="modal"
-                    aria-label="Close"
-                  >
-                    <span aria-hidden="true">&times;</span>
+                    type='button'
+                    className='close'
+                    data-dismiss='modal'
+                    aria-label='Close'>
+                    <span aria-hidden='true'>&times;</span>
                   </button>
                 </div>
-                <div className="modal-body">
+                <div className='modal-body'>
                   Are you sure you want to delete this?
                 </div>
-                <div className="modal-footer">
+                <div className='modal-footer'>
                   <button
-                    type="button"
-                    className="btn btn-secondary"
-                    data-dismiss="modal"
-                  >
+                    type='button'
+                    className='btn btn-secondary'
+                    data-dismiss='modal'>
                     Cancel
                   </button>
                   <button
-                    type="button"
-                    className="btn btn-danger"
-                    onClick={handleDel}
-                  >
+                    type='button'
+                    className='btn btn-danger'
+                    onClick={handleDel}>
                     Delete
                   </button>
                 </div>
