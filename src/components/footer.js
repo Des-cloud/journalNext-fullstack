@@ -3,10 +3,10 @@
 const Footer = () => {
   return (
     <>
-      <div className="footer-padding"></div>
-      <div className="footer">
-        <p className="author"> Desmond Ofori Atta</p>
-        <p className="copyright text-muted">&copy; 2021</p>
+      <div className='footer-padding'></div>
+      <div className='footer'>
+        <p className='author'> Isaac Owusu</p>
+        <p className='copyright text-muted'>&copy; 2023</p>
       </div>
     </>
   );
